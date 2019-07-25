@@ -1,25 +1,40 @@
 <div class="form-group">
-<form [formGroup] = "staffForm">
-    <div class="form-element">
-        <label for='staffName'>Staff Name:</label>
-        <input type="text" formControlName = "staffName">
-    </div>
-    <div class="form-element">
-        <label for='jobTitle'>Job Title:</label>
-        <input type="text" formControlName = "jobTitle">
-    </div>
-    <div class="form-element">
-        <a href="javascript:;" (click) = 'staffformaction()' class="btn">{{buttonLabel}}</a>
-    </div>
-    <div class="error-msg" *ngIf ="errorMessage">error message goes here</div>
-</form>
+    <form [formGroup] = "staffForm">
+        <div class="form-element">
+            <label for='firstName'>First Name:</label>
+            <input type="text" formControlName = "firstName">
+        </div>
+        <div class="form-element">
+            <label for='lastName'>Last Name:</label>
+            <input type="text" formControlName = "lastName">
+        </div>
+        <div class="form-element">
+            <label for='jobTitle'>Job Title:</label>
+            <input type="text" formControlName = "jobTitle">
+        </div>
+        <div class="form-element">
+            <a href="javascript:;" (click) = 'staffformaction()' class="btn btn-green">{{buttonLabel}}</a>
+        </div>
+        <div class="error-msg" *ngIf ="errorMessage">All field shouldn't be empty</div>
+    </form>
 </div>
 
-<div class="data-list">
-    <div class="list-item" *ngFor="let staff of staffData">
-        <span class="first-name"><span class="label">Name:</span> {{staff.name}} </span>
-        <span class="job-title"><span class="label">Job Title:</span> {{staff.jobtitle}} </span>
-        <a href="javascript:;" (click)="editStaff( staff.id )" class="btn btn-grey">Edit</a> 
-        <a href="javascript:;" (click)="deleteStaff( staff.id )" class="btn btn-red">Delete</a>
-    </div>
+<div class="data-list" *ngIf = "staffData.length > 0">
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Job Title</th>
+            <th>Action</th>
+        </tr>
+        <tr *ngFor="let staff of staffData">
+            <td>{{staff.firstname}} </td>
+            <td>{{staff.lastname}} </td>
+            <td>{{staff.jobtitle}}</td>
+            <td>
+                <a href="javascript:;" (click)="editStaff( staff.id )" class="btn btn-grey">Edit</a>
+                <a href="javascript:;" (click)="deleteStaff( staff.id )" class="btn btn-red">Delete</a>
+            </td>
+        </tr>
+    </table>
 </div>

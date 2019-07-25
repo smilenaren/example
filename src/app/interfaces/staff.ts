@@ -1,7 +1,8 @@
 export interface Staff {
     id: number;
-    name: string;
-    jobtitle?: string;
+    firstname: string;
+    lastname: string;
+    jobtitle: string;
     createdDate?: number;
     updatedDate?: number;
 }

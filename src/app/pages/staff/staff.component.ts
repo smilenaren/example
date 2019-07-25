@@ -29,14 +29,16 @@ export class StaffComponent implements OnInit {
 
   ngOnInit() {
     this.staffForm = this.formBuilder.group({
-      staffName: [ '', [ Validators.required ] ],
+      firstName: [ '', [ Validators.required ] ],
+      lastName: [ '', [ Validators.required ] ],
       jobTitle: [ '', [ Validators.required ] ],
     });
     this.loadStaffs();
   }
 
   staffformaction() {
-    const staffName = this.staffForm.controls.staffName.value;
+    const firstName = this.staffForm.controls.firstName.value;
+    const lastName = this.staffForm.controls.lastName.value;
     const jobTitle = this.staffForm.controls.jobTitle.value;
     if ( ! this.staffForm.valid ) {
       this.errorMessage = true;
@@ -46,7 +48,8 @@ export class StaffComponent implements OnInit {
     }
 
     const staffInfo: Staff = {
-      name : staffName,
+      firstname : firstName,
+      lastname : lastName,
       jobtitle : jobTitle,
       id: this.updateId || Date.now()
     };
@@ -68,13 +71,14 @@ export class StaffComponent implements OnInit {
     this.updateId = id;
     this.buttonLabel = 'Update';
     this.staffForm = this.formBuilder.group({
-      staffName: [ staff.name, [ Validators.required ] ],
+      firstName: [ staff.firstname, [ Validators.required ] ],
+      lastName: [ staff.lastname, [ Validators.required ] ],
       jobTitle: [ staff.jobtitle, [ Validators.required ] ],
     });
   }
 
   deleteStaff( id ) {
-    if (confirm('Sure delete?')) {
+    if (confirm('Are you sure?')) {
       this.staffService.deleteStaff(id);
       this.loadStaffs();
     }

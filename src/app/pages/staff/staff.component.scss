@@ -1,0 +1,89 @@
+.form-group {
+    max-width: 250px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px auto;
+
+    label {
+        display: block;
+        margin-bottom: 7px;
+    }
+
+    input[type=text] {
+        width: 100%;
+        border: none;
+        padding: 5px;
+        background-color: #eee;
+        box-sizing: border-box;
+    }
+
+    .form-element {
+        margin-bottom: 10px;
+    }
+}
+// error message
+.error-msg {
+    color: red;
+}
+
+//buttons
+.btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000;
+    margin-right: 10px;
+    font-size: 12px;
+    display: inline-block;
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    &-green {
+        background-color: darkgreen;
+        color: #fff;
+    }
+
+    &-grey {
+        background-color: grey;
+        color: #fff;
+    }
+
+    &-red {
+        background-color: red;
+        color: #fff;
+    }
+}
+
+//data list
+.data-list {
+    padding: 10px;
+    border: 1px solid #ddd;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+//table
+table {
+    width: 100%;
+
+    th,td {
+        padding: 2px 5px;
+
+        &:last-child {
+            text-align: right;
+        }
+    }
+    th {
+        white-space: nowrap;
+        text-align: left;
+    }
+
+    tr:nth-child(2n){
+        td {
+            background-color: #eee;
+        }
+    }
+}
