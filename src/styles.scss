@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+$primary: #222;
+$secondary: #666;
+
+body {
+	color: $primary;
+}
+
+ul {
+	padding: 0;
+
+	li {
+		list-style: none;
+	}
+}

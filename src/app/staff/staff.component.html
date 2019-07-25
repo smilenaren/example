@@ -1,0 +1,16 @@
+<div class="form-group">
+<form [formGroup] = "staffForm">
+    <ul>
+        <li><label for='staffName'>Staff Name:</label></li>
+        <li><input type="text" formControlName = "staffName"></li>
+        <li><a href="javascript:;" (click) = 'staffformaction()'>{{buttonLabel}}</a></li>
+        <li *ngIf ="errorMessage">error message goes here</li>
+    </ul>
+</form>
+</div>
+
+<ul>
+    <li *ngFor="let staff of staffData let i = index;" id="item-{{i}}">{{staff.staff}} |
+    <a href="javascript:;" (click)="editStaff( i )">edit</a> |
+    <a href="javascript:;" (click)="deleteStaff( i )">Delete</a></li>
+</ul>
